@@ -1,4 +1,4 @@
-# SvelteKit Server Skill
+# SvelteKit Skills
 
 SvelteKit 서버 레이어 아키텍처 가이드라인. [Agent Skills (SKILL.md)](https://agentskills.io) 표준을 따르며, 모든 AI 코딩 에이전트에서 사용할 수 있다.
 
@@ -8,12 +8,12 @@ Active Record 도메인 모델, Query Service 조회 패턴, REST API 엔드포�
 
 | 스킬 | 설명 |
 |------|------|
-| `sveltekit-conventions` | 서버 레이어 아키텍처: Active Record, Query Service, REST API 패턴 |
+| `server-architecture` | 서버 레이어 아키텍처: Active Record, Query Service, REST API 패턴 |
 
 ## 설치
 
 ```bash
-npx skills add dev-goraebap/sveltekit-server-skill
+npx skills add dev-goraebap/sveltekit-skills
 ```
 
 ## 핵심 규칙

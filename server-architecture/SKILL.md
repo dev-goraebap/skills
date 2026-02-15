@@ -1,5 +1,5 @@
 ---
-name: sveltekit-conventions
+name: server-architecture
 description: SvelteKit 서버 레이어 아키텍처 가이드라인. Active Record 도메인 모델, Query Service, REST API 패턴, 서브도메인 기반 스키마 조직을 정의한다. SvelteKit 프로젝트에서 서버 코드를 작성하거나 구조를 잡을 때 참고한다.
 ---
 
