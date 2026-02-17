@@ -12,7 +12,7 @@ SvelteKit 프로젝트의 서버 아키텍처와 코드 작성 규칙. [Agent Sk
 ## 설치
 
 ```bash
-npx skills add dev-goraebap/sveltekit-skills
+npx skills add dev-goraebap/sveltekit-custom-skills
 ```
 
 ## 구조
