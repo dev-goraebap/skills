@@ -44,6 +44,47 @@ routes/admin/leaves/
 
 ## 코드 작성 가이드
 
+### 인라인 타입 금지 — 반드시 분리 정의
+
+구조 분해 할당에 인라인으로 타입을 작성하지 않는다. **`interface`나 `type`을 별도로 정의**하여 사용한다. 이 규칙은 `$props()`, 함수 매개변수, 일반 변수 등 모든 구조 분해에 동일하게 적용된다.
+
+**안티패턴:**
+
+```typescript
+// 구조 분해에 인라인 타입 — 금지
+let { todo, onupdate, ondelete }: {
+  todo: TodoView;
+  onupdate: (updated: TodoView) => void;
+  ondelete: (id: string) => void;
+} = $props();
+
+// 함수 매개변수에 인라인 타입 — 금지
+function process({ id, name }: { id: string; name: string }) { ... }
+```
+
+**올바른 패턴:**
+
+```typescript
+// 별도 interface/type 정의 후 사용
+interface Props {
+  todo: TodoView;
+  onupdate: (updated: TodoView) => void;
+  ondelete: (id: string) => void;
+}
+
+let { todo, onupdate, ondelete }: Props = $props();
+
+// 함수 매개변수도 동일
+interface ProcessParams {
+  id: string;
+  name: string;
+}
+
+function process({ id, name }: ProcessParams) { ... }
+```
+
+프로퍼티가 적더라도 `interface`로 분리하는 것을 기본으로 한다. 타입의 의미가 명확히 드러나고, 이후 프로퍼티 추가 시에도 깔끔하다.
+
 ### 스크립트 섹션 주석
 
 Svelte 파일의 `<script>` 영역이 길어지면 역할별로 섹션을 구분하는 주석을 단다.

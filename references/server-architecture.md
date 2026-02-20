@@ -28,10 +28,10 @@ $lib/server/
     {subdomain}/
       {model}.ts
   infra/
-    service/                 ← Query Service (조회 전용 뷰모델)
+    service/                 ← Query Service (조회 전용)
       {name}-query.service.ts
-
-$lib/entities/               ← 도메인 타입 + 순수 헬퍼 (서버/클라이언트 공유)
+    view-models/             ← 조회 전용 뷰모델 타입 (프론트 공유)
+      {name}.ts
 ```
 
 ## 스키마 조직: 서브도메인 분류
@@ -87,14 +87,11 @@ export class Department {
 ## Query Service (조회 전용)
 
 - **크로스 도메인 조인 허용** — 조회는 SQL 조인이므로 도메인 경계를 강제하지 않는다.
-- 뷰모델 타입은 **같은 파일에 정의**한다. 프론트에서 `import type`으로 사용한다.
+- 뷰모델 타입은 **`infra/view-models/`에 별도 파일로 정의**한다. 서비스와 프론트 양쪽에서 `import type`으로 사용한다.
 - 메서드명은 용도를 드러낸다: `listPage()`, `listOptions()`, `getDetail()` 등.
 
 ```typescript
-// $lib/server/infra/service/member-query.service.ts
-import { db } from '$lib/server/db';
-import { members, departments, positions } from '$lib/server/db/organization-schema';
-
+// $lib/server/infra/view-models/member.ts
 export interface MemberView {
   id: string;
   name: string;
@@ -106,6 +103,13 @@ export interface MemberPage {
   items: MemberView[];
   total: number;
 }
+```
+
+```typescript
+// $lib/server/infra/service/member-query.service.ts
+import { db } from '$lib/server/db';
+import { members, departments, positions } from '$lib/server/db/organization-schema';
+import type { MemberPage } from '$lib/server/infra/view-models/member';
 
 export class MemberQueryService {
   static async listPage(params: {
@@ -129,11 +133,41 @@ export class MemberQueryService {
 }
 ```
 
-### 타입 관리
+## 타입 관리
 
-- ORM 스키마에서 타입을 추출한다 (Drizzle: `InferSelectModel`, Prisma: generated types 등).
-- `$lib/entities/`에서 `import type`으로 re-export한다.
-- `import type`은 SvelteKit의 `$lib/server/` 보호 제한에 걸리지 않는다.
+### 원칙: 서버 타입이 원천이다
+
+**`$lib/entities/` 같은 별도 공유 타입 레이어를 만들지 않는다.** 모든 타입은 서버측에서 정의하고, 클라이언트는 `import type`으로 가져다 쓴다.
+
+- `import type`은 SvelteKit의 `$lib/server/` 보호 제한에 걸리지 않는다. 런타임 코드가 아닌 타입만 가져오므로 안전하다.
+
+### CUD 타입 — Drizzle 스키마에서 추출
+
+도메인 모델의 반환 타입은 별도로 정의하지 않는다. **Drizzle 스키마 타입을 그대로 사용**한다.
+
+```typescript
+// $lib/server/domain/organization/department.ts
+import type { InferSelectModel } from 'drizzle-orm';
+import { departments } from '$lib/server/db/organization-schema';
+
+// Drizzle 스키마에서 추출한 타입을 그대로 사용
+export type DepartmentRecord = InferSelectModel<typeof departments>;
+
+export class Department {
+  static async create(data: { name: string }): Promise<DepartmentRecord> {
+    // ...
+  }
+}
+```
+
+### 조회 뷰모델 타입 — `infra/view-models/`에 정의
+
+Query Service가 반환하는 뷰모델 타입은 `infra/view-models/`에 별도 파일로 분리한다. 프론트엔드에서 `import type`으로 직접 참조한다.
+
+```typescript
+// 프론트엔드에서 서버 타입을 import type으로 사용
+import type { MemberView } from '$lib/server/infra/view-models/member';
+```
 
 ## 데이터 흐름 규칙
 
