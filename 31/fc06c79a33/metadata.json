@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "31fc06c79a33",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "skills/media-storage/SKILL.md",
+    "skills/mvp-preview/SKILL.md",
+    "skills/mvp-preview/references/build.md",
+    "skills/mvp-preview/references/discovery.md",
+    "skills/mvp-preview/references/share.md",
+    "skills/sveltekit-progressive-architecture/SKILL.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/31/fc06c79a33/0/metadata.json",
+      "transcript": "/31/fc06c79a33/0/full.jsonl",
+      "context": "/31/fc06c79a33/0/context.md",
+      "content_hash": "/31/fc06c79a33/0/content_hash.txt",
+      "prompt": "/31/fc06c79a33/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 33,
+    "cache_creation_tokens": 88206,
+    "cache_read_tokens": 2074852,
+    "output_tokens": 14229,
+    "api_call_count": 23
+  }
+}
