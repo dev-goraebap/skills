@@ -140,7 +140,7 @@ git --version
 없으면 설치 후 진행한다:
 - macOS: `brew install git`
 - Ubuntu/Debian: `sudo apt install git`
-- Windows: https://git-scm.com
+- Windows: https://git-scm.com/download/win
 
 ### 커밋 + 태그
 

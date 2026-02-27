@@ -42,7 +42,9 @@ AI와 함께 핵심 기능을 빠르게 만들고 링크로 공유하는 워크�
 두 가지를 확인한다.
 
 1. **git 설치 여부**: `git --version` 실행. 없으면 설치를 제안하고 진행한다
-   - macOS: `brew install git` / Ubuntu: `sudo apt install git`
+   - macOS: `brew install git`
+   - Ubuntu/Debian: `sudo apt install git`
+   - Windows: https://git-scm.com/download/win
 2. **brief.md 확인**: 내용이 있으면 이전 맥락을 이어간다. 없으면 Step 1부터 시작한다
 
 ### Step 1: 토론
@@ -63,8 +65,12 @@ AI와 함께 핵심 기능을 빠르게 만들고 링크로 공유하는 워크�
 
 스택이 확정되면 `build.md`의 방식에 따라 구현한다.
 
-- **화면이 2개 이상이면** 단일 파일에 몰아넣지 않는다. HTML 파일을 화면별로 분리하고 `<a href>`로 연결한다
-- **단일 HTML 방식이면** Tailwind CDN + Alpine.js를 사용한다. Vanilla JS로 DOM을 직접 조작하지 않는다
+**단일 HTML 방식을 선택한 경우:**
+- Tailwind CDN + Alpine.js를 사용한다. Vanilla JS로 DOM을 직접 조작하지 않는다
+- 화면이 2개 이상이면 하나의 파일에 몰아넣지 않는다. HTML 파일을 화면별로 분리하고 `<a href>`로 연결한다
+
+**프레임워크 방식을 선택한 경우:**
+- 기존 프로젝트 구조에 새 페이지/컴포넌트를 추가한다. 별도 설정 없이 진행한다
 
 구현이 끝나면 **즉시 커밋 + 태그**를 단다:
 
