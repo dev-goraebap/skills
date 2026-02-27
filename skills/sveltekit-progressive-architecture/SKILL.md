@@ -1,6 +1,8 @@
 ---
 name: sveltekit-progressive-architecture
 description: "SvelteKit 프로젝트 아키텍처·코드 규칙. Actions: 작성, 구현, 리뷰, 리팩터, 검토, 추가, 설계, 수정, write, implement, review, refactor, fix. Base Rules: 컴포넌트 재사용, $lib, 라우트 배치, 인라인 타입 금지, interface, type, script 섹션, 주석, 가독성, code style, TypeScript. Server Architecture: 서버 아키텍처, Active Record, Query Service, REST API, Drizzle, +server.ts, +page.server.ts, server/domain, server/infra, 뷰모델, view-model, form actions, ORM, schema, 레이어 분리, CUD, load. UI Components: shadcn-svelte, shadcn, button, dialog, modal, table, form, input, calendar, popover, badge, card, select, tabs, switch, textarea, $lib/components/ui, npx shadcn-svelte."
+metadata:
+  author: dev-goraebap
 ---
 
 # SvelteKit Progressive Architecture
