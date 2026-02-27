@@ -1,6 +1,7 @@
 ---
 name: sveltekit-progressive-architecture
 description: "SvelteKit 프로젝트 아키텍처·코드 규칙. Actions: 작성, 구현, 리뷰, 리팩터, 검토, 추가, 설계, 수정, write, implement, review, refactor, fix. Base Rules: 컴포넌트 재사용, $lib, 라우트 배치, 인라인 타입 금지, interface, type, script 섹션, 주석, 가독성, code style, TypeScript. Server Architecture: 서버 아키텍처, Active Record, Query Service, REST API, Drizzle, +server.ts, +page.server.ts, server/domain, server/infra, 뷰모델, view-model, form actions, ORM, schema, 레이어 분리, CUD, load. UI Components: shadcn-svelte, shadcn, button, dialog, modal, table, form, input, calendar, popover, badge, card, select, tabs, switch, textarea, $lib/components/ui, npx shadcn-svelte."
+allowed-tools: Bash Read Write Edit
 metadata:
   author: dev-goraebap
 ---
@@ -69,3 +70,16 @@ SvelteKit 프로젝트에 적용하는 아키텍처와 코드 작성 규칙.
 ### Step 3: 규칙 적용
 
 참조 파일의 규칙에 따라 코드를 작성하거나 리뷰한다. 규칙에 어긋나는 부분이 있으면 지적하고 수정 방향을 제안한다.
+
+## 자율 실행 원칙
+
+**확인 없이 즉시 수행:**
+- 코드 파일 읽기·작성·수정
+- 새 파일·디렉토리 생성
+- shadcn-svelte 컴포넌트 설치 (`npx shadcn-svelte@latest add <name>`)
+- 패키지 의존성 확인 (`package.json` 읽기)
+- 기존 컴포넌트 목록 확인
+
+**사용자에게 먼저 물어볼 것:**
+- 기존 파일 삭제가 필요한 경우
+- 아키텍처 방향이 명확히 불명확한 경우
