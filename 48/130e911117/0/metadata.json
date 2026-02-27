@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "48130e911117",
+  "session_id": "c35d1476-f3be-4cfa-825d-ac7adae8171a",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-27T13:05:54.229045102Z",
+  "branch": "master",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "skills/media-storage/SKILL.md",
+    "skills/sveltekit-progressive-architecture/SKILL.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "5d18a722e94c",
+  "token_usage": {
+    "input_tokens": 170,
+    "cache_creation_tokens": 462462,
+    "cache_read_tokens": 11528397,
+    "output_tokens": 65075,
+    "api_call_count": 126
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-27T13:05:53.813067092Z",
+    "agent_lines": 0,
+    "human_added": 16,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 16,
+    "agent_percentage": 0
+  }
+}
