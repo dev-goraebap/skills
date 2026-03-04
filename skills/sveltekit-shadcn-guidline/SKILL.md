@@ -28,16 +28,23 @@ ls components.json
 ```
 
 - **파일이 있으면** → 이미 설정 완료. 바로 컴포넌트 추가로 이동.
-- **파일이 없으면** → 초기화 필요:
+- **파일이 없으면** → 사용자에게 직접 초기화를 요청한다:
 
-```bash
-npx shadcn-svelte@latest init
-```
+> **shadcn-svelte가 초기화되어 있지 않습니다.**
+> 터미널에서 아래 명령어를 원하는 설정으로 먼저 실행해 주세요:
+>
+> ```bash
+> npx shadcn-svelte@latest init
+> ```
+>
+> 권장 설정:
+> - Base color: `Slate`
+> - Global CSS: `src/routes/+layout.svelte`
+> - Import aliases: `$lib`, `$lib/components`, `$lib/utils`, `$lib/hooks`, `$lib/components/ui`
+>
+> 완료되면 다시 알려주세요.
 
-초기화 시 권장 설정:
-- Base color: `Slate`
-- Global CSS: `src/routes/+layout.svelte`
-- Import aliases: `$lib`, `$lib/components`, `$lib/utils`, `$lib/hooks`, `$lib/components/ui`
+초기화 완료 확인 후 컴포넌트 추가로 진행한다.
 
 ### 2. 컴포넌트 추가 방식 선택
 
