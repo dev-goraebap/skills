@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "28ca1297f0bf",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "skills/vscode-claude-notify/SKILL.md",
+    "skills/vscode-claude-notify/references/hooks-config.md",
+    "skills/vscode-claude-notify/scripts/notify-mac.sh",
+    "skills/vscode-claude-notify/scripts/notify-windows.ps1",
+    "skills/vscode-claude-notify/scripts/notify-wsl.sh"
+  ],
+  "sessions": [
+    {
+      "metadata": "/28/ca1297f0bf/0/metadata.json",
+      "transcript": "/28/ca1297f0bf/0/full.jsonl",
+      "context": "/28/ca1297f0bf/0/context.md",
+      "content_hash": "/28/ca1297f0bf/0/content_hash.txt",
+      "prompt": "/28/ca1297f0bf/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 54,
+    "cache_creation_tokens": 49661,
+    "cache_read_tokens": 2968638,
+    "output_tokens": 20499,
+    "api_call_count": 35
+  }
+}

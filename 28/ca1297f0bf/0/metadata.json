@@ -1,0 +1,36 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "28ca1297f0bf",
+  "session_id": "67b7a199-549a-41c6-95c5-fa8108787403",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-04T06:32:32.462521986Z",
+  "branch": "master",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "skills/vscode-claude-notify/SKILL.md",
+    "skills/vscode-claude-notify/references/hooks-config.md",
+    "skills/vscode-claude-notify/scripts/notify-mac.sh",
+    "skills/vscode-claude-notify/scripts/notify-windows.ps1",
+    "skills/vscode-claude-notify/scripts/notify-wsl.sh"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "bf48b6ea9fea",
+  "checkpoint_transcript_start": 113,
+  "transcript_lines_at_start": 113,
+  "token_usage": {
+    "input_tokens": 54,
+    "cache_creation_tokens": 49661,
+    "cache_read_tokens": 2968638,
+    "output_tokens": 20499,
+    "api_call_count": 35
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-04T06:32:32.204249091Z",
+    "agent_lines": 229,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 229,
+    "agent_percentage": 100
+  }
+}
