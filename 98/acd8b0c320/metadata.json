@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "98acd8b0c320",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "skills/usecase-diagram-gen/SKILL.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/98/acd8b0c320/0/metadata.json",
+      "transcript": "/98/acd8b0c320/0/full.jsonl",
+      "context": "/98/acd8b0c320/0/context.md",
+      "content_hash": "/98/acd8b0c320/0/content_hash.txt",
+      "prompt": "/98/acd8b0c320/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 76,
+    "cache_creation_tokens": 101856,
+    "cache_read_tokens": 3149346,
+    "output_tokens": 33773,
+    "api_call_count": 48
+  }
+}
