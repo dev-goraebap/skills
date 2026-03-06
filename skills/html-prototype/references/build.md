@@ -169,6 +169,7 @@ const detail = {
 ```
 preview/
 ├── index.html          ← 허브 (화면 목록)
+├── components.js       ← 공통 컴포넌트 (선택)
 ├── 01-login.html
 ├── 02-dashboard.html
 ├── 03-list.html
@@ -178,6 +179,75 @@ preview/
 ```
 
 파일명: `[전체순번]-[영문화면명].html` (2자리 zero-padding)
+
+---
+
+## 공통 컴포넌트 패턴
+
+네비게이션 바, 사이드바 등이 여러 화면에 반복되면 `preview/components.js` 한 파일에 Web Components로 모아 관리한다.
+`<script src>` 방식이라 `file://` 프로토콜에서도 동작한다.
+
+**`preview/components.js`:**
+
+```js
+class AppNavbar extends HTMLElement {
+  connectedCallback() {
+    const title    = this.getAttribute('title') || '';
+    const backHref = this.getAttribute('back-href');
+    this.innerHTML = `
+      <nav style="background:#fff; border-bottom:1px solid #eee; padding:12px 16px;
+                  display:flex; align-items:center; gap:12px;">
+        ${backHref ? `<a href="${backHref}"
+            style="background:none; border:none; font-size:18px;
+                   cursor:pointer; text-decoration:none; color:#111;">←</a>` : ''}
+        <span style="font-weight:600;">${title}</span>
+      </nav>`;
+  }
+}
+customElements.define('app-navbar', AppNavbar);
+
+class AppSidebar extends HTMLElement {
+  connectedCallback() {
+    const active = this.getAttribute('active') || '';
+    const menus = [
+      { id: 'home',  label: '홈',  href: '02-dashboard.html' },
+      { id: 'list',  label: '목록', href: '03-list.html' },
+    ];
+    this.innerHTML = `
+      <aside style="width:200px; background:#fff; border-right:1px solid #eee;
+                    padding:16px; min-height:100vh;">
+        ${menus.map(m => `
+          <a href="${m.href}" style="display:block; padding:10px 12px; border-radius:6px;
+             text-decoration:none; margin-bottom:4px;
+             ${m.id === active
+               ? 'background:#111; color:#fff;'
+               : 'color:#444;'}">
+            ${m.label}
+          </a>`).join('')}
+      </aside>`;
+  }
+}
+customElements.define('app-sidebar', AppSidebar);
+```
+
+**각 HTML에서 사용:**
+
+```html
+<script src="./components.js"></script>
+
+<app-navbar title="목록" back-href="index.html"></app-navbar>
+
+<!-- 사이드바 + 본문 레이아웃 -->
+<div style="display:flex;">
+  <app-sidebar active="list"></app-sidebar>
+  <div style="flex:1; padding:24px;">
+    <!-- 본문 내용 -->
+  </div>
+</div>
+```
+
+> **사용 기준**: 공통 UI가 3개 이상 화면에 반복될 때만 `components.js`를 만든다.
+> 그 미만이면 각 파일에 인라인으로 두는 게 더 단순하다.
 
 ---
 

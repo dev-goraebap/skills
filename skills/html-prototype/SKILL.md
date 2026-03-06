@@ -78,6 +78,12 @@ node ~/.claude/skills/html-prototype/scripts/extract_pdf_text.js \
 04. 상세 화면 → 뒤로 가기
 ```
 
+### Step 3.5 — 공통 컴포넌트 생성 (해당 시)
+
+화면 분석 결과, 네비게이션 바 · 사이드바 · 하단 탭 바 등이 3개 이상 화면에 반복되면
+HTML 파일 생성 전에 `preview/components.js`를 먼저 작성한다.
+각 공통 요소를 Web Component로 정의하고, 해당 앱의 실제 메뉴 구조를 반영한다.
+
 ### Step 4 — HTML/CSS/JS 생성
 
 `references/build.md`의 패턴을 참고해 화면별 HTML 파일을 만든다.
@@ -90,6 +96,7 @@ node ~/.claude/skills/html-prototype/scripts/extract_pdf_text.js \
 - 목업 데이터 하드코딩 — API 연결 없음
 - 해피 패스만 — 에러 처리, 예외 케이스 없음
 - 외부 CDN/라이브러리 없음 — 순수 HTML/CSS/JS만
+- 공통 UI가 3개 이상 화면에 반복되면 Step 3.5에서 미리 만든 `components.js`의 Web Component 태그를 사용
 
 ### Step 5 — 공유 안내
 
