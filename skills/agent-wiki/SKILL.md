@@ -20,6 +20,10 @@ metadata:
 
 ```
 <워크스페이스>/
+├── SKILL.md                    ← 위키 스킬 메타
+├── README.md                   ← 프로젝트 위키 개요
+├── CONTRIBUTING.md             ← 문서 수정 규칙
+├── .gitignore                  ← .agents/, .claude/ 제외
 ├── product-backlog.md          ← 진입점
 ├── definition-of-done.md
 ├── epics/ep-NNN-[슬러그].md
@@ -74,19 +78,24 @@ node ~/.claude/skills/agent-wiki/scripts/extract_pdf_text.js \
 
 `references/product-backlog-guide.md` 참고. 소스 이력 테이블 포함.
 
-### Step 5 — Epic / User Story / DoD 생성
+### Step 5 — 문서 생성
 
 | 산출물 | 가이드 | 출력 경로 |
 |--------|--------|-----------|
 | Epic | `references/epic-guide.md` | `epics/ep-NNN-[슬러그].md` |
 | User Story | `references/user-story-guide.md` | `user-stories/us-NNN-[슬러그].md` |
 | DoD | `references/dod-guide.md` | `definition-of-done.md` |
+| SKILL.md, README.md, CONTRIBUTING.md, .gitignore | `references/wiki-skill-guide.md` | 워크스페이스 루트 |
 
 모든 문서에 상호 링크 포함 (Backlog ↔ Epic ↔ Story).
+
+**스킬 이름 결정:** `references/wiki-skill-guide.md`의 이름 규칙을 따른다. 워크스페이스 폴더명이 영문+하이픈이면 `{폴더명}-wiki`, 아니면 프로젝트 성격에서 영문 슬러그를 도출하여 `{슬러그}-wiki`로 짓는다.
 
 ### Step 6 — 결과 보고
 
 생성 파일 목록, EP/US 수, ID 범위, 우선순위 분포를 보고.
+
+**폴더명 불일치 시:** 워크스페이스 폴더명과 SKILL.md name이 다르면 피드백을 출력한다 (`references/wiki-skill-guide.md`의 피드백 템플릿 참고).
 
 ---
 
@@ -99,3 +108,4 @@ node ~/.claude/skills/agent-wiki/scripts/extract_pdf_text.js \
 | `references/user-story-guide.md` | Story 템플릿 + AC + 상태/라벨/의존성 |
 | `references/dod-guide.md` | DoD 체크리스트 템플릿 |
 | `references/update-guide.md` | 업데이트 모드 상세 절차 |
+| `references/wiki-skill-guide.md` | SKILL.md/README/CONTRIBUTING/.gitignore 템플릿 + 스킬 이름 규칙 |
