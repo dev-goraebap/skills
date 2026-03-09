@@ -6,7 +6,7 @@ description: >
   생성된 문서는 위키 스킬로 활용 가능하며, 에이전트가 제품 컨텍스트(플랫폼, 대상 사용자)와
   요구사항을 참고하여 프로젝트를 수행할 수 있다.
   기존 프로젝트의 이슈(버그, 개선, 기술 부채)도 Story로 관리 가능.
-  원격 위키 리포에 MR/PR을 통한 기여를 지원한다.
+  원격 위키 리포에 로컬 clone + push 방식으로 기여를 지원한다.
   트리거: "백로그 만들어줘", "유저스토리 정리", "에픽 뽑아줘", "애자일 문서",
   "agent-wiki", "에이전트 위키", "요구사항을 스토리로", "백로그 업데이트",
   "스토리 추가해줘", "이슈 정리해줘", "버그 추가해줘" 등
@@ -117,7 +117,7 @@ node ~/.claude/skills/agent-wiki/scripts/extract_pdf_text.js \
 
 **스킬 이름 결정:** `references/wiki-skill-guide.md`의 이름 규칙을 따른다. 워크스페이스 폴더명이 이미 `-wiki`로 끝나면 그대로, 영문+하이픈이면 `{폴더명}-wiki`, 아니면 프로젝트 성격에서 영문 슬러그를 도출하여 `{슬러그}-wiki`로 짓는다.
 
-**스크립트 복사:** 원격 리포 정보가 있으면 `scripts/create-mr.js`를 워크스페이스의 `scripts/`에 복사한다. 이 스크립트는 credentials 읽기와 MR/PR 생성을 자동 처리한다.
+**템플릿 복사:** 원격 리포 정보가 있으면 `templates/credentials-guide.md`와 `templates/remote-contrib-guide.md`를 워크스페이스의 `references/`에 복사한다.
 
 ### Step 7 — 결과 보고
 
@@ -138,5 +138,5 @@ node ~/.claude/skills/agent-wiki/scripts/extract_pdf_text.js \
 | `references/dod-guide.md` | DoD 체크리스트 템플릿 |
 | `references/update-guide.md` | 업데이트 모드 + 부트스트랩 + 원격 워크스페이스 절차 |
 | `references/wiki-skill-guide.md` | SKILL.md/README/CONTRIBUTING/.gitignore 템플릿 + 스킬 이름 규칙 |
-| `references/credentials-guide.md` | 원격 기여 인증 정보 형식 + 설정 방법 |
-| `references/remote-contrib-guide.md` | 원격 기여 절차 (R-Step 1~5) |
+| `templates/credentials-guide.md` | 원격 기여 인증 정보 형식 + 설정 방법. 생성된 위키의 `references/`에 복사됨 |
+| `templates/remote-contrib-guide.md` | 원격 기여 절차 (R-Step 1~4). 생성된 위키의 `references/`에 복사됨 |

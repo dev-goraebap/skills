@@ -37,7 +37,7 @@ CWD가 소스코드 프로젝트인 경우 (예: `todo-app/`).
 위키가 `.agents/skills/todo-app-wiki/`에 설치되어 있다.
 
 → **설치된 스킬의 로컬 파일을 직접 수정하지 않는다** (읽기 전용 복사본)
-→ `references/remote-contrib-guide.md` 참고하여 원격 모드: credentials 읽기 → 원격 리포 clone → 브랜치 → 변경 → MR/PR
+→ `templates/remote-contrib-guide.md` 참고하여 원격 모드: credentials의 local_path에서 리포 pull → 브랜치 → 변경 → push
 
 ### 판단 기준
 
@@ -119,15 +119,19 @@ CWD가 소스코드 프로젝트인 경우 (예: `todo-app/`).
 
 ### 원격 모드
 
-MR/PR URL을 포함한다:
+push 완료 후 MR/PR 생성 링크를 안내한다:
 
 ```
-✅ 위키 업데이트 MR/PR 생성 완료
+✅ 변경사항이 push되었습니다.
+브랜치: contrib/{skill-name}-{설명}
 
-PR: https://github.com/{repo}/pull/42
+MR/PR 생성: {url}/{project}/-/merge_requests/new?source_branch=contrib/{skill-name}-{설명}
 
 [변경 내용]
 - user-stories/us-014-fix-login-bug.md 추가 (bug 타입)
 - epics/ep-002-user-mgmt.md 갱신
 - product-backlog.md 갱신
+
+Merge 후 설치된 스킬을 갱신하려면:
+npx skillsadd {clone-url}
 ```

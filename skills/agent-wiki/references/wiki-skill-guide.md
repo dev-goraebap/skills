@@ -87,46 +87,8 @@ description: >
 
 ### 원격 업데이트 (케이스 B: 설치된 스킬에서 호출 시)
 
-#### 1. 인증 확인
-
-`~/.config/agent-wiki/credentials`에서 `[{platform}.{skill-name}]` 섹션을 읽는다.
-
-```toml
-[{platform}.{skill-name}]
-url      = {base-url}
-repo     = {repo-path}
-token    = (발급받은 토큰)
-username = (사용자명)
-```
-
-섹션이 없으면 사용자에게 credentials 설정을 안내하고 중단한다.
-
-#### 2. 리포지토리 준비
-
-임시 디렉토리에 원격 리포를 clone한다.
-기본 브랜치에서 `contrib/{skill-name}-{설명}` 브랜치를 생성한다.
-
-#### 3. 변경 적용
-
-CONTRIBUTING.md의 규칙에 따라 문서를 수정한다:
-- 이슈 → Story로 변환 (타입: feature / bug / enhancement / tech-debt)
-- 관련 Epic과 product-backlog.md 갱신
-- product-brief.md 없으면 부트스트랩 제안
-
-#### 4. MR/PR 생성
-
-커밋 후 push하고, `scripts/create-mr.js`로 MR/PR을 생성한다:
-
-```bash
-node scripts/create-mr.js \
-  --skill-name {skill-name} \
-  --source-branch contrib/{skill-name}-{설명} \
-  --title "[{skill-name}] 변경 요약" \
-  --description "변경 내용 상세"
-```
-
-스크립트가 credentials 읽기와 플랫폼별 API 호출을 자동으로 처리한다.
-MR/PR URL을 사용자에게 보고한다.
+자세한 절차는 `references/remote-contrib-guide.md` 참고.
+credentials 설정은 `references/credentials-guide.md` 참고.
 
 ## 문서 수정 규칙
 
@@ -198,7 +160,7 @@ username = (사용자명)
 
 > "{skill-name} 위키에 로그인 버그 이슈 추가해줘"
 
-에이전트가 자동으로: credentials 읽기 → 브랜치 생성 → 변경 → MR/PR 생성
+에이전트가 자동으로: 로컬 리포 pull → 브랜치 생성 → 변경 → push. MR/PR은 웹에서 생성합니다.
 
 ### 브랜치 / MR/PR 규칙
 

@@ -1,6 +1,6 @@
 # Credentials 가이드
 
-에이전트가 원격 위키 리포지토리에 MR/PR을 생성하려면 인증 정보가 필요하다.
+에이전트가 원격 위키 리포지토리에 기여하려면 인증 정보가 필요하다.
 
 ---
 
@@ -18,16 +18,18 @@
 
 ```toml
 [github.todo-app-wiki]
-url      = https://github.com
-repo     = myorg/todo-app-wiki
-token    = ghp_xxxxxxxxxxxxxxxxxxxx
-username = my-github-username
+url         = https://github.com
+repo        = myorg/todo-app-wiki
+token       = ghp_xxxxxxxxxxxxxxxxxxxx
+username    = my-github-username
+local_path  = /c/Users/devgo/Workspace/wikis/todo-app-wiki
 
 [gitlab.bteam-wiki]
-url      = https://gitlab.example.com
-project  = company/group/bteam-wiki
-token    = glpat-xxxxxxxxxxxxxxxxxxxx
-username = my-gitlab-username
+url         = https://gitlab.example.com
+project     = company/group/bteam-wiki
+token       = glpat-xxxxxxxxxxxxxxxxxxxx
+username    = my-gitlab-username
+local_path  = /c/Users/devgo/Workspace/wikis/bteam-wiki
 ```
 
 ### 섹션 헤더 규칙
@@ -44,6 +46,7 @@ username = my-gitlab-username
 | `repo` / `project` | 리포지토리 경로 (GitHub: `owner/repo`, GitLab: `group/subgroup/project`) |
 | `token` | Personal Access Token |
 | `username` | 사용자명 |
+| `local_path` | 위키 리포가 clone된 로컬 경로. 최초 clone 시 자동 기록. |
 
 GitHub은 `repo`, GitLab은 `project` 키를 사용한다.
 
