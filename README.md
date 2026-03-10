@@ -4,13 +4,15 @@
 
 | 스킬 | 설명 |
 |------|------|
-| [agent-wiki](./skills/agent-wiki/) | 비정형 정보(기획 메모, RFP, 회의록 등)를 애자일 문서(Product Backlog, Epic, User Story, DoD)로 변환하고 Agent Skill 형식으로 생성 |
-| [html-prototype](./skills/html-prototype/) | 요구사항 문서·화면설계서에서 순수 HTML/CSS/JS 클릭 가능한 프로토타입 자동 생성 (.pdf/.txt/.md 지원) |
+| [agent-wiki](./skills/agent-wiki/) | 어떤 정보 공간이든 git 기반 워크스페이스로 만들고 관리. AGENTS.md를 동적 생성하여 에이전트 길잡이 역할 |
+| [agile-doc-creator](./skills/agile-doc-creator/) | 비정형 정보·소스코드에서 Product Brief, Backlog, Epic, User Story, DoD 생성·관리 |
+| [ia-doc-creator](./skills/ia-doc-creator/) | 비정형 정보·소스코드에서 Sitemap, User Flows, IA Audit 생성·관리 |
+| [pdf-parser](./skills/pdf-parser/) | PDF 파일에서 텍스트를 추출하여 .txt로 변환 |
+| [html-prototype](./skills/html-prototype/) | 요구사항 문서·화면설계서에서 순수 HTML/CSS/JS 클릭 가능한 프로토타입 자동 생성 |
 | [media-storage](./skills/media-storage/) | 파일 업로드·저장소·첨부 관리 패턴 (R2, blob, 색상 추출) |
 | [sveltekit-progressive-architecture](./skills/sveltekit-progressive-architecture/) | SvelteKit 개발 가이드라인 |
 | [sveltekit-shadcn-guidline](./skills/sveltekit-shadcn-guidline/) | SvelteKit + shadcn-svelte 컴포넌트 활용 가이드 |
 | [vscode-claude-notify](./skills/vscode-claude-notify/) | VSCode Claude 알림 버그 우회 — OS 네이티브 알림으로 작업 완료·오류 수신 (Windows/macOS/WSL) |
-| [screen-design-doc](./skills/screen-design-doc/) | RFP·기획문서·메모에서 IA(사이트맵)와 화면설계서를 자동 생성 및 업데이트. SC ID·요구사항 ID 추적 지원 (.pdf/.txt/.md) |
 
 ## 설치하기
 
