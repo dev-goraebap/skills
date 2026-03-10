@@ -21,6 +21,15 @@ process.stdin.on('end', () => {
       message: payload.message || '확인이 필요합니다',
       appID: 'Claude Code'
     });
+  } else if (mode === 'permission') {
+    const toolName = payload.tool_name || '도구';
+    const toolInput = payload.tool_input || {};
+    const detail = toolInput.command || toolInput.path || JSON.stringify(toolInput).slice(0, 80);
+    notifier.notify({
+      title: projectName,
+      message: `권한 요청: ${toolName}\n${detail}`,
+      appID: 'Claude Code'
+    });
   } else {
     const lastMsg = payload.last_assistant_message || '';
     const summary = lastMsg.length > 300
