@@ -1,28 +1,15 @@
-# {프로젝트명} Wiki
+# {워크스페이스명}
 
-{프로젝트명} 프로젝트의 요구사항을 애자일 문서로 정리한 위키입니다.
+{이 워크스페이스의 목적 한 줄 설명 — 에이전트가 스캔 결과 기반으로 작성}
 
 ## 문서 구조
 
+{스캔 결과 기반으로 실제 파일 목록을 채운다. 없는 파일은 포함하지 않는다.}
+
 | 문서 | 설명 |
 |------|------|
-| [product-brief.md](product-brief.md) | 제품 컨텍스트 — 플랫폼, 대상 사용자, 기술 제약 |
-| [product-backlog.md](product-backlog.md) | 전체 인덱스 — Epic/Story 목록, 의존성 맵 |
-| [definition-of-done.md](definition-of-done.md) | 공통 완료 기준 |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | 문서 수정 규칙 |
+| [AGENTS.md](AGENTS.md) | 에이전트 읽기 순서 및 작업 안내 |
 
-### Epic 목록
+## 이 워크스페이스에 대해
 
-| Epic ID | Epic명 |
-|---------|--------|
-| [EP-001](epics/ep-001-xxx.md) | ... |
-| [EP-002](epics/ep-002-xxx.md) | ... |
-
-## 이 위키의 용도
-
-이 저장소는 독립 git 리포로 구성된 에이전트 위키입니다.
-소스코드 프로젝트에 git submodule로 연결하면 AI 에이전트가 요구사항, 우선순위, 인수 조건을 참고하여 작업할 수 있습니다.
-
----
-
-> 이 위키는 [agent-wiki](https://github.com/dev-goraebap/skills/tree/master/skills/agent-wiki)로 만들어졌습니다.
+{워크스페이스의 특성에 맞게 작성. 예: 독립 리포로 사용하는 경우, 다른 프로젝트에 submodule로 연결된 경우 등}
