@@ -5,7 +5,6 @@ description: >
   에자일 문서(Product Brief, Product Backlog, Epic, User Story, DoD)를 생성·관리한다.
   인수 조건은 Given-When-Then 형식으로 작성하고, 7단계 상태로 Story 진행을 추적한다.
   생성 후 다른 에이전트가 이 문서들을 유지·보수하는 방법을 가이드라인으로 함께 준비한다.
-  agent-wiki 워크스페이스 내부 또는 독립 디렉토리 모두에서 동작한다.
   트리거: "백로그 만들어줘", "유저스토리 정리", "에픽 뽑아줘", "Product Brief 작성",
   "인수 조건 작성", "agile-doc-creator", "에자일 문서", "요구사항을 스토리로",
   "백로그 업데이트", "스토리 추가해줘", "이슈 정리해줘", "버그 추가해줘", "DoD 만들어줘"
@@ -17,7 +16,6 @@ metadata:
 # agile-doc-creator
 
 비정형 입력 또는 기존 코드·문서에서 **에자일 산출물**을 생성·관리한다.
-이 스킬은 **문서 내용** 전문가다. 워크스페이스 git 관리는 `agent-wiki`가 담당한다.
 
 ## 동작 환경 감지
 
@@ -139,15 +137,7 @@ metadata:
 - 기존 ID 변경 금지
 - 삭제 대신 cancelled 처리
 - product-backlog.md는 항상 최신 상태 유지
-
-## 연관 스킬
-- 워크스페이스 관리: /agent-wiki
-- IA 문서 추가: /ia-doc-creator
 ```
-
-### Step 5 — AGENTS.md 갱신
-
-agent-wiki 워크스페이스 내에서 작업하는 경우, 새 에자일 문서가 생성되면 AGENTS.md의 읽기 순서와 구조 설명을 갱신한다.
 
 ## 참고 파일
 

@@ -1,7 +1,7 @@
 ---
 name: pdf-parser
 description: >
-  PDF 파일에서 텍스트를 추출하여 다른 스킬이 처리할 수 있는 형식(.txt)으로 변환한다.
+  PDF 파일에서 텍스트를 추출하여 처리 가능한 형식(.txt)으로 변환한다.
   Node.js와 pdf-parse 라이브러리를 사용하며, 출력 파일을 지정된 경로에 저장한다.
   트리거: ".pdf 파일", "PDF 텍스트 추출", "PDF 파싱", "pdf-parser",
   "PDF를 읽어줘", "PDF 내용 추출"
@@ -13,7 +13,6 @@ metadata:
 # pdf-parser
 
 PDF 파일에서 텍스트를 추출하여 `.txt` 파일로 저장한다.
-다른 스킬(agile-doc-creator, ia-doc-creator 등)이 PDF를 처리해야 할 때 이 스킬을 통해 텍스트를 먼저 추출한다.
 
 ## 사전 확인
 

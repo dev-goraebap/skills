@@ -5,7 +5,6 @@ description: >
   인포메이션 아키텍처 문서(Sitemap, User Flows, IA Audit)를 생성·관리한다.
   Findability, Discoverability, Clarity, Scalability 원칙을 적용하며,
   생성 후 다른 에이전트가 이 문서들을 유지·보수하는 방법을 가이드라인으로 함께 준비한다.
-  agent-wiki 워크스페이스 내부 또는 독립 디렉토리 모두에서 동작한다.
   트리거: "IA 설계해줘", "사이트맵 만들어줘", "네비게이션 구조", "정보 구조 잡아줘",
   "화면 구조 설계", "유저 플로우", "ia-doc-creator", "메뉴 구조", "페이지 계층",
   "화면 계층", "IA 감사"
@@ -17,7 +16,6 @@ metadata:
 # ia-doc-creator
 
 비정형 입력 또는 기존 코드·문서에서 **인포메이션 아키텍처 산출물**을 생성·관리한다.
-이 스킬은 **IA 문서 내용** 전문가다. 워크스페이스 git 관리는 `agent-wiki`가 담당한다.
 
 ## 페르소나
 
@@ -149,14 +147,7 @@ metadata:
 - sitemap.md: 화면 추가/삭제 시 user-flows.md도 함께 검토
 - user-flows.md: Mermaid 다이어그램 형식 유지
 
-## 연관 스킬
-- 워크스페이스 관리: /agent-wiki
-- 에자일 문서 추가: /agile-doc-creator
 ```
-
-### Step 7 — AGENTS.md 갱신
-
-agent-wiki 워크스페이스 내에서 작업하는 경우, 새 IA 문서가 생성되면 AGENTS.md의 읽기 순서와 구조 설명을 갱신한다.
 
 ## 참고 파일
 
