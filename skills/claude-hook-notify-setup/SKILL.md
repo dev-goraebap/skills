@@ -1,50 +1,43 @@
 ---
 name: claude-hook-notify-setup
 description: >
-  Claude Code의 Stop·Notification hook에 OS 네이티브 토스트 알림을 연결하는 세팅 스킬.
+  Claude Code hook에 OS 네이티브 토스트 알림을 연결하는 세팅 스킬.
   node-notifier 기반으로 Windows(SnoreToast), macOS(알림 센터), Linux(libnotify) 모두 지원.
-  작업 완료 시 자동 토스트, 확인 필요 시 즉시 토스트를 띄운다.
+  작업 완료·권한 요청·질문 등 세 가지 상황에서 토스트를 띄운다.
   트리거: "작업 완료 알림 설정", "claude 알림 받고 싶어", "hook 알림", "끝나면 알려줘", "토스트 알림 설정"
 license: Apache-2.0
 compatibility: Claude Code
 metadata:
   author: dev-goraebap
-  version: "1.0"
+  version: "1.1"
 ---
 
 # claude-hook-notify-setup
 
-Claude Code가 작업을 끝내거나 확인이 필요할 때 OS 네이티브 토스트 알림을 보내도록 설정한다.
+Claude Code가 작업을 끝내거나 입력이 필요할 때 OS 네이티브 토스트를 띄운다.
 
 ## 동작 방식
 
-- **Stop hook** → 작업 완료 시 토스트 (제목: 프로젝트명, 내용: 마지막 응답 요약 300자)
-- **Notification hook** → 확인 필요 시 토스트 (제목: 프로젝트명, 내용: 알림 메시지)
+| hook | 발화 시점 | 토스트 내용 |
+|------|-----------|-------------|
+| `Stop` | Claude 턴 종료 | 프로젝트명 / 마지막 응답 요약 (300자) |
+| `PermissionRequest` | 도구 실행 권한 요청 시 | Bash 명령어 또는 AskUserQuestion 질문 텍스트 |
+| `Notification` | Claude Code 시스템 알림 | 알림 메시지 |
+
+> `AskUserQuestion`도 PermissionRequest로 발화하며, 질문 텍스트가 토스트에 바로 표시된다.
 
 ## 설치 절차
 
-### 1. 스크립트 디렉토리 준비
+### 1. 스크립트 배포
 
 ```bash
 mkdir -p ~/.claude/skills/claude-hook-notify-setup/scripts
-```
-
-### 2. notify.js + package.json 복사
-
-이 스킬의 `scripts/` 디렉토리에 있는 두 파일을 위 경로에 복사한다.
-
-```bash
 cp <skill-path>/scripts/notify.js ~/.claude/skills/claude-hook-notify-setup/scripts/
 cp <skill-path>/scripts/package.json ~/.claude/skills/claude-hook-notify-setup/scripts/
-```
-
-### 3. 의존성 설치
-
-```bash
 cd ~/.claude/skills/claude-hook-notify-setup/scripts && npm install
 ```
 
-### 4. ~/.claude/settings.json에 hooks 등록
+### 2. ~/.claude/settings.json에 hooks 등록
 
 ```json
 {
@@ -54,7 +47,7 @@ cd ~/.claude/skills/claude-hook-notify-setup/scripts && npm install
         "hooks": [
           {
             "type": "command",
-            "command": "node C:/Users/<username>/.claude/skills/claude-hook-notify-setup/scripts/notify.js stop"
+            "command": "node /Users/<username>/.claude/skills/claude-hook-notify-setup/scripts/notify.js stop"
           }
         ]
       }
@@ -64,7 +57,17 @@ cd ~/.claude/skills/claude-hook-notify-setup/scripts && npm install
         "hooks": [
           {
             "type": "command",
-            "command": "node C:/Users/<username>/.claude/skills/claude-hook-notify-setup/scripts/notify.js notification"
+            "command": "node /Users/<username>/.claude/skills/claude-hook-notify-setup/scripts/notify.js notification"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /Users/<username>/.claude/skills/claude-hook-notify-setup/scripts/notify.js permission"
           }
         ]
       }
@@ -73,12 +76,12 @@ cd ~/.claude/skills/claude-hook-notify-setup/scripts && npm install
 }
 ```
 
-> Windows 경로는 백슬래시 대신 슬래시(`/`) 사용. `<username>`을 실제 사용자명으로 교체.
+> `<username>`을 실제 사용자명으로 교체. Windows는 `C:/Users/<username>/...` 형식 사용.
 
 ## 제거
-
-`~/.claude/settings.json`에서 hooks 블록을 삭제하고 스크립트 디렉토리를 제거한다.
 
 ```bash
 rm -rf ~/.claude/skills/claude-hook-notify-setup
 ```
+
+`~/.claude/settings.json`에서 hooks 블록도 함께 삭제.

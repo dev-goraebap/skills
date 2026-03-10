@@ -13,13 +13,6 @@ process.stdin.on('end', () => {
   let payload = {};
   try { payload = JSON.parse(raw); } catch {}
 
-  // 디버그: 페이로드 캡처
-  const os = require('os');
-  require('fs').writeFileSync(
-    os.homedir() + '/.claude/skills/claude-hook-notify-setup/debug-' + mode + '.json',
-    JSON.stringify(payload, null, 2)
-  );
-
   const projectName = payload.cwd ? path.basename(payload.cwd) : 'Claude Code';
 
   if (mode === 'notification') {
