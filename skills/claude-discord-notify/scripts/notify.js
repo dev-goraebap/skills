@@ -62,15 +62,14 @@ function sendEmbed(embed, done) {
 const mode = process.argv[2] || 'stop';
 
 if (mode === 'notification') {
+  const projectName = path.basename(process.cwd());
+  const agentName = process.env.CLAUDE_MODEL || 'Claude Sonnet 4.6';
   sendEmbed(
     {
-      title: '⚠️ 확인이 필요합니다',
+      title: '확인이 필요합니다',
       color: 16776960, // 노란색
       description: 'Claude가 계속 진행하기 전에 입력을 기다리고 있습니다.',
-      fields: [
-        { name: '📁 프로젝트', value: path.basename(process.cwd()), inline: true },
-        { name: '🤖 에이전트', value: process.env.CLAUDE_MODEL || 'Claude Sonnet 4.6', inline: true },
-      ],
+      footer: { text: `${projectName} · ${agentName}` },
     },
     () => process.exit(0)
   );
@@ -90,19 +89,17 @@ process.stdin.on('end', () => {
   }
 
   // 실제 페이로드 구조: last_assistant_message, cwd 직접 제공
-  const summary = (payload.last_assistant_message || '(없음)').slice(0, 500);
+  const raw_msg = payload.last_assistant_message || '';
+  const summary = raw_msg.length > 300 ? raw_msg.slice(0, 300) + '...' : raw_msg || '(없음)';
   const projectName = payload.cwd ? path.basename(payload.cwd) : path.basename(process.cwd());
   const agentName = process.env.CLAUDE_MODEL || 'Claude Sonnet 4.6';
 
   sendEmbed(
     {
-      title: '✅ 작업 완료',
+      title: '작업 완료',
       color: 5763719, // 초록색
-      fields: [
-        { name: '📝 요약', value: summary, inline: false },
-        { name: '📁 프로젝트', value: projectName, inline: true },
-        { name: '🤖 에이전트', value: agentName, inline: true },
-      ],
+      description: summary,
+      footer: { text: `${projectName} · ${agentName}` },
     },
     () => process.exit(0)
   );
