@@ -1,8 +1,3 @@
----
-name: sveltekit-shadcn-guidline
-description: "SvelteKit 프로젝트에서 shadcn-svelte 컴포넌트를 활용하는 가이드. 사용자가 UI 화면을 구성하거나 어떤 컴포넌트를 써야 할지 고민할 때, 또는 shadcn-svelte 컴포넌트를 설치하거나 초기 설정이 필요할 때 반드시 이 스킬을 사용한다. 버튼, 모달, 카드, 사이드바, 폼, 테이블 등 UI 요소를 언급하면 이 스킬을 적극 참고한다."
----
-
 # shadcn-svelte 가이드
 
 > shadcn-svelte는 TypeScript, Tailwind CSS, Bits UI 기반의 접근성 높은 Svelte/SvelteKit 컴포넌트 모음이다. CLI로 컴포넌트를 설치하고 소스를 직접 수정할 수 있다.
