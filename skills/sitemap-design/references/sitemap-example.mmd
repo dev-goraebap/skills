@@ -1,0 +1,160 @@
+---
+config:
+  theme: dark
+  look: handDrawn
+---
+flowchart LR
+    subgraph root[" HR 플랫폼 "]
+
+        subgraph org[" 조직 관리 "]
+
+            org_dept([부서 관리])
+            org_pos([직위 관리])
+            org_emp([직원 관리])
+
+            org_dept --> org_dept_list["`부서 목록
+            *검색/필터*`"] & org_dept_edit[부서 등록/수정] & org_dept_tree["`부서 트리 보기
+            *계층 시각화*`"]
+            org_pos --> org_pos_list[직위 목록] & org_pos_edit["`직위 등록/수정
+            *등급 설정*`"]
+            org_emp --> org_emp_list["`직원 목록
+            *검색/필터/페이징*`"] & org_emp_detail["`직원 상세
+            *프로필/이력*`"] & org_emp_edit[직원 등록/수정] & org_emp_resign["`퇴사 처리
+            *일괄/개별*`"]
+        end
+
+        subgraph att[" 근태 관리 "]
+
+            att_work([출퇴근])
+            att_leave([휴가])
+
+            att_work --> att_in[출근 기록] & att_out[퇴근 기록] & att_status["`근태 현황 조회
+            *일별/월별*`"]
+            att_leave --> att_req[휴가 신청] & att_approve["`휴가 승인/반려
+            *결재 프로세스*`"] & att_remain[잔여 휴가 조회] & att_type["`휴가 유형 설정
+            *유급/무급*`"]
+        end
+
+        subgraph pay[" 급여 관리 "]
+
+            pay_grade([급여 등급])
+            pay_proc([급여 처리])
+
+            pay_grade --> pay_grade_list[등급 목록] & pay_grade_edit["`등급 등록/수정
+            *상한/하한 설정*`"]
+            pay_proc --> pay_slip["`급여 명세서
+            *PDF 출력*`"] & pay_calc["`급여 일괄 계산
+            *수당/공제 반영*`"] & pay_history["`급여 지급 내역
+            *월별 조회*`"]
+        end
+
+        subgraph eval[" 인사 평가 "]
+
+            eval_period([평가 기간])
+            eval_do([평가 수행])
+
+            eval_period --> eval_period_set["`기간 설정
+            *반기/연간*`"] & eval_period_list[기간 목록]
+            eval_do --> eval_target[평가 대상 조회] & eval_input["`평가 입력
+            *등급/점수/코멘트*`"] & eval_result["`평가 결과 조회
+            *통계/비교*`"]
+        end
+
+        subgraph recruit[" 채용 관리 "]
+
+            recruit_post([채용 공고])
+            recruit_app([지원자 관리])
+
+            recruit_post --> recruit_list[공고 목록] & recruit_edit["`공고 등록/수정
+            *부서/직위 연결*`"] & recruit_close[공고 마감]
+            recruit_app --> app_list["`지원자 목록
+            *전형별 필터*`"] & app_detail[지원서 상세] & app_stage["`전형 단계 변경
+            *서류→면접→최종*`"]
+        end
+
+        subgraph edu[" 교육 관리 "]
+
+            edu_course([교육 과정])
+            edu_enroll([수강 관리])
+
+            edu_course --> edu_course_list[과정 목록] & edu_course_edit["`과정 등록/수정
+            *필수/선택 구분*`"]
+            edu_enroll --> edu_req[수강 신청] & edu_status["`이수 현황
+            *이수율 통계*`"] & edu_complete[수강 완료 처리]
+        end
+
+        subgraph transfer[" 인사 이동 "]
+
+            transfer_order([발령])
+
+            transfer_order --> transfer_create["`발령 등록
+            *부서/직위 변경*`"] & transfer_history[발령 이력 조회]
+        end
+
+    end
+
+    org_dept:::l2
+    org_pos:::l2
+    org_emp:::l2
+    org_dept_list:::l3
+    org_dept_edit:::l3
+    org_dept_tree:::l3
+    org_pos_list:::l3
+    org_pos_edit:::l3
+    org_emp_list:::l3
+    org_emp_detail:::l3
+    org_emp_edit:::l3
+    org_emp_resign:::l3
+    att_work:::l2
+    att_leave:::l2
+    att_in:::l3
+    att_out:::l3
+    att_status:::l3
+    att_req:::l3
+    att_approve:::l3
+    att_remain:::l3
+    att_type:::l3
+    pay_grade:::l2
+    pay_proc:::l2
+    pay_grade_list:::l3
+    pay_grade_edit:::l3
+    pay_slip:::l3
+    pay_calc:::l3
+    pay_history:::l3
+    eval_period:::l2
+    eval_do:::l2
+    eval_period_set:::l3
+    eval_period_list:::l3
+    eval_target:::l3
+    eval_input:::l3
+    eval_result:::l3
+    recruit_post:::l2
+    recruit_app:::l2
+    recruit_list:::l3
+    recruit_edit:::l3
+    recruit_close:::l3
+    app_list:::l3
+    app_detail:::l3
+    app_stage:::l3
+    edu_course:::l2
+    edu_enroll:::l2
+    edu_course_list:::l3
+    edu_course_edit:::l3
+    edu_req:::l3
+    edu_status:::l3
+    edu_complete:::l3
+    transfer_order:::l2
+    transfer_create:::l3
+    transfer_history:::l3
+
+    classDef l2 fill:#1f0e2a,stroke:#e879f9,color:#f0a8fc,stroke-width:1px
+    classDef l3 fill:#1a1e24,stroke:#94a3b8,color:#b8c4d4,stroke-width:1px
+
+    style root fill:#1a2040,stroke:#5b6ef5,color:#a4b0ff,stroke-width:2px
+    style org fill:#0d2926,stroke:#2dd4bf,color:#7eecd8,stroke-width:1px
+    style att fill:#0f2518,stroke:#4ade80,color:#8aedb3,stroke-width:1px
+    style pay fill:#1a2408,stroke:#a3e635,color:#c4ee7a,stroke-width:1px
+    style eval fill:#1a1e24,stroke:#94a3b8,color:#b8c4d4,stroke-width:1px
+    style recruit fill:#2a2208,stroke:#fbbf24,color:#fcd76a,stroke-width:1px
+    style edu fill:#181a30,stroke:#818cf8,color:#b0b8fb,stroke-width:1px
+    style transfer fill:#0e1e2a,stroke:#38bdf8,color:#7ed4fb,stroke-width:1px
