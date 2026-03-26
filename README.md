@@ -41,9 +41,12 @@ npx skills add dev-goraebap/skills
 
 ```
 ◆  Select skills to install (space to toggle)
-│  ◻ media-storage
-│  ◻ mvp-preview
-│  ◻ sveltekit-progressive-architecture
+│  ◻ agent-wiki
+│  ◻ agent-wiki-erd
+│  ◻ agent-wiki-sitemap
+│  ◻ agent-wiki-tasks
+│  ◻ claude-hook-notify-setup
+│  ◻ pdf-parser
 ```
 
 **2. 에이전트 선택** — 어떤 에이전트에 설치할지 선택합니다
